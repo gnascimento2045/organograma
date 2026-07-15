@@ -12,18 +12,22 @@ import {
 import '@xyflow/react/dist/style.css'
 
 import EmployeeNode from './components/EmployeeNode'
+import GroupNode from './components/GroupNode'
 import { getLayoutedElements } from './lib/layout'
 import type { Organograma } from './types'
 import './App.css'
 
-const nodeTypes = { employee: EmployeeNode }
+const nodeTypes = { employee: EmployeeNode, group: GroupNode }
 
 function toFlowNodes(data: Organograma): Node[] {
   return data.nodes.map((n) => ({
     id: n.id,
-    type: 'employee',
-    position: { x: 0, y: 0 },
+    type: n.type || 'employee',
+    position: n.position || { x: 0, y: 0 },
     data: n.data,
+    parentId: n.parentId,
+    style: n.style,
+    draggable: n.type !== 'group',
   }))
 }
 

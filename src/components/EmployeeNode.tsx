@@ -23,28 +23,28 @@ export default function EmployeeNode({ data }: NodeProps) {
   return (
     <div
       style={{
-        padding: '10px 14px',
-        borderRadius: 8,
+        padding: '8px 12px',
+        borderRadius: 6,
         border: `2px solid ${color}`,
         background: '#fff',
         textAlign: 'center',
-        minWidth: 150,
-        maxWidth: 200,
+        minWidth: 120,
+        maxWidth: 180,
         boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
       }}
     >
       <Handle type="target" position={Position.Top} />
-      <div style={{ fontWeight: 700, fontSize: 13, color: '#111827' }}>{name}</div>
-      <div style={{ fontSize: 11, color, marginTop: 2 }}>{cargo}</div>
+      <div style={{ fontWeight: 700, fontSize: 12, color: '#111827' }}>{name}</div>
+      <div style={{ fontSize: 10, color, marginTop: 2 }}>{cargo}</div>
       {projetos && projetos.length > 0 && (
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 3, justifyContent: 'center', marginTop: 6 }}>
-          {projetos.slice(0, 3).map((p) => (
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 2, justifyContent: 'center', marginTop: 4 }}>
+          {projetos.slice(0, 2).map((p) => (
             <span
               key={p}
               style={{
-                fontSize: 9,
-                padding: '2px 5px',
-                borderRadius: 3,
+                fontSize: 8,
+                padding: '1px 4px',
+                borderRadius: 2,
                 background: '#f3f4f6',
                 color: '#6b7280',
               }}
@@ -52,17 +52,17 @@ export default function EmployeeNode({ data }: NodeProps) {
               {p}
             </span>
           ))}
-          {projetos.length > 3 && (
+          {projetos.length > 2 && (
             <span
               style={{
-                fontSize: 9,
-                padding: '2px 5px',
-                borderRadius: 3,
+                fontSize: 8,
+                padding: '1px 4px',
+                borderRadius: 2,
                 background: '#f3f4f6',
                 color: '#6b7280',
               }}
             >
-              +{projetos.length - 3}
+              +{projetos.length - 2}
             </span>
           )}
         </div>
