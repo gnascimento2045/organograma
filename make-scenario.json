@@ -1,0 +1,64 @@
+{
+  "name": "Notion → GitHub Organograma",
+  "flow": [
+    {
+      "id": 1,
+      "module": "notion:n watchingDatabaseItemsNew",
+      "version": 6,
+      "parameters": {
+        "database": "{{notion_database_id}}"
+      },
+      "metadata": {
+        "designer": { "x": 0, "y": 0 }
+      }
+    },
+    {
+      "id": 2,
+      "module": "notion:n-listDatabaseItems",
+      "version": 3,
+      "parameters": {
+        "database": "{{notion_database_id}}",
+        "sortDirection": "asc",
+        "limit": 500
+      },
+      "metadata": {
+        "designer": { "x": 300, "y": 0 }
+      }
+    },
+    {
+      "id": 3,
+      "module": "tools:JSRunJavaScript",
+      "version": 1,
+      "parameters": {
+        "script": "const items = $input.all();\nconst nodes = [];\nconst edges = [];\n\nfor (const item of items) {\n  const nome = item.json.Nome || item.json.name || '';\n  const cargo = item.json.Cargo || item.json.role || '';\n  const gestor = item.json.Gestor || item.json.manager || '';\n  const area = item.json Área || item.json.area || 'Geral';\n\n  nodes.push({\n    id: nome,\n    data: {\n      label: nome + '\\n' + cargo,\n      area: area\n    }\n  });\n\n  if (gestor) {\n    edges.push({\n      id: gestor + '-' + nome,\n      source: gestor,\n      target: nome\n    });\n  }\n}\n\nreturn [{ json: { nodes, edges } }];"
+      },
+      "metadata": {
+        "designer": { "x": 600, "y": 0 }
+      }
+    },
+    {
+      "id": 4,
+      "module": "github:UpdateFile",
+      "version": 3,
+      "parameters": {
+        "repo": "{{github_repo}}",
+        "path": "public/organograma.json",
+        "content": "={{JSON.stringify($json)}}",
+        "message": "Update organograma via Make",
+        "branch": "main",
+        "encoding": "utf-8"
+      },
+      "metadata": {
+        "designer": { "x": 900, "y": 0 }
+      }
+    }
+  ],
+  "metadata": {
+    "version": 1,
+    "scenario": {
+      "maxErrors": 3,
+      "autoCommit": true,
+      "sequential": false
+    }
+  }
+}

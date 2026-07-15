@@ -1,0 +1,13 @@
+{
+  "nodes": [
+    { "id": "Zamp", "data": { "label": "Zamp\nCEO", "area": "Diretoria" } },
+    { "id": "Josi", "data": { "label": "Josi\nCPO", "area": "Diretoria" } },
+    { "id": "Diego", "data": { "label": "Diego\nCTO", "area": "Tecnologia" } },
+    { "id": "Gabriel", "data": { "label": "Gabriel\nDev", "area": "Tecnologia" } }
+  ],
+  "edges": [
+    { "id": "Zamp-Josi", "source": "Zamp", "target": "Josi" },
+    { "id": "Zamp-Diego", "source": "Zamp", "target": "Diego" },
+    { "id": "Diego-Gabriel", "source": "Diego", "target": "Gabriel" }
+  ]
+}
