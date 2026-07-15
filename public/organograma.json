@@ -12,7 +12,7 @@
       },
       "style": {
         "width": 300,
-        "height": 150
+        "height": 180
       }
     },
     {
@@ -64,18 +64,18 @@
       }
     },
     {
-      "id": "group-diretoria",
+      "id": "group-byponto",
       "type": "group",
       "data": {
-        "label": "Diretoria"
+        "label": "BYPONTO"
       },
       "position": {
         "x": 0,
-        "y": 200
+        "y": 250
       },
       "style": {
-        "width": 250,
-        "height": 120
+        "width": 280,
+        "height": 110
       }
     },
     {
@@ -88,10 +88,25 @@
           "BYPONTO"
         ]
       },
-      "parentId": "group-diretoria",
+      "parentId": "group-byponto",
       "position": {
         "x": 0,
         "y": 0
+      }
+    },
+    {
+      "id": "group-resultagro",
+      "type": "group",
+      "data": {
+        "label": "RESULTAGRO"
+      },
+      "position": {
+        "x": 0,
+        "y": 250
+      },
+      "style": {
+        "width": 280,
+        "height": 110
       }
     },
     {
@@ -104,7 +119,7 @@
           "RESULTAGRO"
         ]
       },
-      "parentId": "group-diretoria",
+      "parentId": "group-resultagro",
       "position": {
         "x": 0,
         "y": 0
@@ -120,10 +135,25 @@
           "RESULTAGRO"
         ]
       },
-      "parentId": "group-diretoria",
+      "parentId": "group-resultagro",
       "position": {
         "x": 0,
         "y": 0
+      }
+    },
+    {
+      "id": "group-zeonpaper",
+      "type": "group",
+      "data": {
+        "label": "ZEONPAPER"
+      },
+      "position": {
+        "x": 0,
+        "y": 250
+      },
+      "style": {
+        "width": 280,
+        "height": 250
       }
     },
     {
@@ -136,7 +166,7 @@
           "ZEONPAPER"
         ]
       },
-      "parentId": "group-diretoria",
+      "parentId": "group-zeonpaper",
       "position": {
         "x": 0,
         "y": 0
@@ -155,7 +185,7 @@
           "FANTHON"
         ]
       },
-      "parentId": "group-diretoria",
+      "parentId": "group-zeonpaper",
       "position": {
         "x": 0,
         "y": 0
@@ -173,7 +203,7 @@
           "REDUTO"
         ]
       },
-      "parentId": "group-diretoria",
+      "parentId": "group-zeonpaper",
       "position": {
         "x": 0,
         "y": 0
@@ -189,7 +219,7 @@
           "ZEONPAPER"
         ]
       },
-      "parentId": "group-diretoria",
+      "parentId": "group-zeonpaper",
       "position": {
         "x": 0,
         "y": 0
@@ -205,10 +235,25 @@
           "ZEONPAPER"
         ]
       },
-      "parentId": "group-diretoria",
+      "parentId": "group-zeonpaper",
       "position": {
         "x": 0,
         "y": 0
+      }
+    },
+    {
+      "id": "group-ux-team",
+      "type": "group",
+      "data": {
+        "label": "UX TEAM"
+      },
+      "position": {
+        "x": 0,
+        "y": 250
+      },
+      "style": {
+        "width": 280,
+        "height": 110
       }
     },
     {
@@ -221,7 +266,7 @@
           "UX TEAM"
         ]
       },
-      "parentId": "group-diretoria",
+      "parentId": "group-ux-team",
       "position": {
         "x": 0,
         "y": 0
@@ -237,10 +282,25 @@
           "UX TEAM"
         ]
       },
-      "parentId": "group-diretoria",
+      "parentId": "group-ux-team",
       "position": {
         "x": 0,
         "y": 0
+      }
+    },
+    {
+      "id": "group-trading-food",
+      "type": "group",
+      "data": {
+        "label": "TRADING FOOD"
+      },
+      "position": {
+        "x": 0,
+        "y": 250
+      },
+      "style": {
+        "width": 280,
+        "height": 110
       }
     },
     {
@@ -254,7 +314,7 @@
           "MOONZ"
         ]
       },
-      "parentId": "group-diretoria",
+      "parentId": "group-trading-food",
       "position": {
         "x": 0,
         "y": 0
@@ -274,10 +334,25 @@
           "MOONZ"
         ]
       },
-      "parentId": "group-diretoria",
+      "parentId": "group-trading-food",
       "position": {
         "x": 0,
         "y": 0
+      }
+    },
+    {
+      "id": "group-sapiens",
+      "type": "group",
+      "data": {
+        "label": "SAPIENS"
+      },
+      "position": {
+        "x": 0,
+        "y": 250
+      },
+      "style": {
+        "width": 280,
+        "height": 110
       }
     },
     {
@@ -292,10 +367,25 @@
           "FANTHON"
         ]
       },
-      "parentId": "group-diretoria",
+      "parentId": "group-sapiens",
       "position": {
         "x": 0,
         "y": 0
+      }
+    },
+    {
+      "id": "group-salariosweb",
+      "type": "group",
+      "data": {
+        "label": "SALARIOSWEB"
+      },
+      "position": {
+        "x": 0,
+        "y": 250
+      },
+      "style": {
+        "width": 280,
+        "height": 110
       }
     },
     {
@@ -309,10 +399,25 @@
           "BYPONTO"
         ]
       },
-      "parentId": "group-diretoria",
+      "parentId": "group-salariosweb",
       "position": {
         "x": 0,
         "y": 0
+      }
+    },
+    {
+      "id": "group-spi-tools",
+      "type": "group",
+      "data": {
+        "label": "SPI-TOOLS"
+      },
+      "position": {
+        "x": 0,
+        "y": 250
+      },
+      "style": {
+        "width": 280,
+        "height": 110
       }
     },
     {
@@ -327,7 +432,7 @@
           "F1DELIZE"
         ]
       },
-      "parentId": "group-diretoria",
+      "parentId": "group-spi-tools",
       "position": {
         "x": 0,
         "y": 0
@@ -344,10 +449,25 @@
           "MEU PET"
         ]
       },
-      "parentId": "group-diretoria",
+      "parentId": "group-spi-tools",
       "position": {
         "x": 0,
         "y": 0
+      }
+    },
+    {
+      "id": "group-reduto",
+      "type": "group",
+      "data": {
+        "label": "REDUTO"
+      },
+      "position": {
+        "x": 0,
+        "y": 250
+      },
+      "style": {
+        "width": 280,
+        "height": 110
       }
     },
     {
@@ -361,10 +481,25 @@
           "MEU PET"
         ]
       },
-      "parentId": "group-diretoria",
+      "parentId": "group-reduto",
       "position": {
         "x": 0,
         "y": 0
+      }
+    },
+    {
+      "id": "group-joinplace",
+      "type": "group",
+      "data": {
+        "label": "JOINPLACE"
+      },
+      "position": {
+        "x": 0,
+        "y": 250
+      },
+      "style": {
+        "width": 280,
+        "height": 110
       }
     },
     {
@@ -377,10 +512,25 @@
           "JOINPLACE"
         ]
       },
-      "parentId": "group-diretoria",
+      "parentId": "group-joinplace",
       "position": {
         "x": 0,
         "y": 0
+      }
+    },
+    {
+      "id": "group-hiibbe",
+      "type": "group",
+      "data": {
+        "label": "HIIBBE"
+      },
+      "position": {
+        "x": 0,
+        "y": 250
+      },
+      "style": {
+        "width": 280,
+        "height": 110
       }
     },
     {
@@ -395,10 +545,25 @@
           "AKINGPOKER"
         ]
       },
-      "parentId": "group-diretoria",
+      "parentId": "group-hiibbe",
       "position": {
         "x": 0,
         "y": 0
+      }
+    },
+    {
+      "id": "group-fanthon",
+      "type": "group",
+      "data": {
+        "label": "FANTHON"
+      },
+      "position": {
+        "x": 0,
+        "y": 250
+      },
+      "style": {
+        "width": 280,
+        "height": 110
       }
     },
     {
@@ -411,7 +576,7 @@
           "FANTHON"
         ]
       },
-      "parentId": "group-diretoria",
+      "parentId": "group-fanthon",
       "position": {
         "x": 0,
         "y": 0
@@ -419,11 +584,6 @@
     }
   ],
   "edges": [
-    {
-      "id": "diretoria-group-diretoria",
-      "source": "group-diretoria",
-      "target": "group-diretoria"
-    },
     {
       "id": "thiago-Josiele",
       "source": "Thiago Zampiere",
@@ -433,6 +593,66 @@
       "id": "thiago-Diego",
       "source": "Thiago Zampiere",
       "target": "Diego"
+    },
+    {
+      "id": "edge-group-byponto",
+      "source": "group-diretoria",
+      "target": "group-byponto"
+    },
+    {
+      "id": "edge-group-resultagro",
+      "source": "group-diretoria",
+      "target": "group-resultagro"
+    },
+    {
+      "id": "edge-group-zeonpaper",
+      "source": "group-diretoria",
+      "target": "group-zeonpaper"
+    },
+    {
+      "id": "edge-group-ux-team",
+      "source": "group-diretoria",
+      "target": "group-ux-team"
+    },
+    {
+      "id": "edge-group-trading-food",
+      "source": "group-diretoria",
+      "target": "group-trading-food"
+    },
+    {
+      "id": "edge-group-sapiens",
+      "source": "group-diretoria",
+      "target": "group-sapiens"
+    },
+    {
+      "id": "edge-group-salariosweb",
+      "source": "group-diretoria",
+      "target": "group-salariosweb"
+    },
+    {
+      "id": "edge-group-spi-tools",
+      "source": "group-diretoria",
+      "target": "group-spi-tools"
+    },
+    {
+      "id": "edge-group-reduto",
+      "source": "group-diretoria",
+      "target": "group-reduto"
+    },
+    {
+      "id": "edge-group-joinplace",
+      "source": "group-diretoria",
+      "target": "group-joinplace"
+    },
+    {
+      "id": "edge-group-hiibbe",
+      "source": "group-diretoria",
+      "target": "group-hiibbe"
+    },
+    {
+      "id": "edge-group-fanthon",
+      "source": "group-diretoria",
+      "target": "group-fanthon"
     }
   ]
 }
