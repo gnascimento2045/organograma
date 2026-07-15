@@ -3,8 +3,36 @@ import { writeFileSync, readFileSync, existsSync } from 'fs'
 const NOTION_API_KEY = process.env.NOTION_API_KEY
 const NOTION_DATABASE_ID = process.env.NOTION_DATABASE_ID
 const JSON_PATH = 'public/organograma.json'
+const NOTION_VERSION = '2025-09-03'
 
-async function fetchAllItems() {
+async function getDataSourceId() {
+  const res = await fetch(
+    `https://api.notion.com/v1/databases/${NOTION_DATABASE_ID}`,
+    {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${NOTION_API_KEY}`,
+        'Notion-Version': NOTION_VERSION,
+        'Content-Type': 'application/json',
+      },
+    }
+  )
+
+  if (!res.ok) {
+    const text = await res.text()
+    throw new Error(`Notion API error ${res.status}: ${text}`)
+  }
+
+  const data = await res.json()
+
+  if (data.data_sources && data.data_sources.length > 0) {
+    return data.data_sources[0].id
+  }
+
+  return NOTION_DATABASE_ID
+}
+
+async function fetchAllItems(dataSourceId) {
   const items = []
   let hasMore = true
   let startCursor = undefined
@@ -14,12 +42,12 @@ async function fetchAllItems() {
     if (startCursor) body.start_cursor = startCursor
 
     const res = await fetch(
-      `https://api.notion.com/v1/databases/${NOTION_DATABASE_ID}/query`,
+      `https://api.notion.com/v1/data_sources/${dataSourceId}/query`,
       {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${NOTION_API_KEY}`,
-          'Notion-Version': '2022-06-28',
+          'Notion-Version': NOTION_VERSION,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(body),
@@ -118,7 +146,9 @@ function processNotionData(items) {
 
 try {
   console.log('Fetching Notion data...')
-  const items = await fetchAllItems()
+  const dataSourceId = await getDataSourceId()
+  console.log(`Using data source: ${dataSourceId}`)
+  const items = await fetchAllItems(dataSourceId)
   console.log(`Fetched ${items.length} items`)
 
   const organograma = processNotionData(items)
