@@ -64,37 +64,6 @@
       }
     },
     {
-      "id": "group-byponto",
-      "type": "group",
-      "data": {
-        "label": "BYPONTO"
-      },
-      "position": {
-        "x": 0,
-        "y": 250
-      },
-      "style": {
-        "width": 280,
-        "height": 110
-      }
-    },
-    {
-      "id": "Wallace (1)",
-      "type": "employee",
-      "data": {
-        "label": "Wallace (1)\nDev",
-        "cargo": "Dev",
-        "projetos": [
-          "BYPONTO"
-        ]
-      },
-      "parentId": "group-byponto",
-      "position": {
-        "x": 0,
-        "y": 0
-      }
-    },
-    {
       "id": "group-resultagro",
       "type": "group",
       "data": {
@@ -106,7 +75,27 @@
       },
       "style": {
         "width": 280,
-        "height": 110
+        "height": 180
+      }
+    },
+    {
+      "id": "Luiz Eduardo",
+      "type": "employee",
+      "data": {
+        "label": "Luiz Eduardo\nDev",
+        "cargo": "Dev",
+        "projetos": [
+          "RESULTAGRO",
+          "ZEONPAPER",
+          "COUNTFLY",
+          "DEPAULAPAY",
+          "FANTHON"
+        ]
+      },
+      "parentId": "group-resultagro",
+      "position": {
+        "x": 0,
+        "y": 0
       }
     },
     {
@@ -142,6 +131,37 @@
       }
     },
     {
+      "id": "group-byponto",
+      "type": "group",
+      "data": {
+        "label": "BYPONTO"
+      },
+      "position": {
+        "x": 0,
+        "y": 250
+      },
+      "style": {
+        "width": 280,
+        "height": 110
+      }
+    },
+    {
+      "id": "Wallace (1)",
+      "type": "employee",
+      "data": {
+        "label": "Wallace (1)\nDev",
+        "cargo": "Dev",
+        "projetos": [
+          "BYPONTO"
+        ]
+      },
+      "parentId": "group-byponto",
+      "position": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
       "id": "group-zeonpaper",
       "type": "group",
       "data": {
@@ -153,7 +173,7 @@
       },
       "style": {
         "width": 280,
-        "height": 250
+        "height": 180
       }
     },
     {
@@ -164,25 +184,6 @@
         "cargo": "Suporte",
         "projetos": [
           "ZEONPAPER"
-        ]
-      },
-      "parentId": "group-zeonpaper",
-      "position": {
-        "x": 0,
-        "y": 0
-      }
-    },
-    {
-      "id": "Luiz Eduardo",
-      "type": "employee",
-      "data": {
-        "label": "Luiz Eduardo\nDev",
-        "cargo": "Dev",
-        "projetos": [
-          "ZEONPAPER",
-          "COUNTFLY",
-          "DEPAULAPAY",
-          "FANTHON"
         ]
       },
       "parentId": "group-zeonpaper",
@@ -595,14 +596,14 @@
       "target": "Diego"
     },
     {
-      "id": "edge-group-byponto",
-      "source": "group-diretoria",
-      "target": "group-byponto"
-    },
-    {
       "id": "edge-group-resultagro",
       "source": "group-diretoria",
       "target": "group-resultagro"
+    },
+    {
+      "id": "edge-group-byponto",
+      "source": "group-diretoria",
+      "target": "group-byponto"
     },
     {
       "id": "edge-group-zeonpaper",
