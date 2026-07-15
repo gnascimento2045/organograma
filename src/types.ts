@@ -2,7 +2,8 @@ export interface OrganogramaNode {
   id: string
   data: {
     label: string
-    area: string
+    cargo: string
+    projetos: string[]
   }
 }
 

@@ -89,6 +89,7 @@ export default function App() {
     <div className="app">
       <header className="header">
         <h1>Organograma</h1>
+        <span className="subtitle">{nodes.length} membros</span>
       </header>
       <ReactFlow
         nodes={nodes}
