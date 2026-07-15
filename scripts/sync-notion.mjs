@@ -121,22 +121,18 @@ function processNotionData(items) {
   const nodes = []
   const edges = []
 
-  // 1. Create Diretoria group node at the top
-  const diretoriaMembers = people.filter(p =>
-    p.gestor === 'Thiago Zampiere' ||
-    p.nome === 'Thiago Zampiere' ||
-    p.projetos.some(proj => proj.includes('DIRETORIA'))
-  )
+  // 1. Identify Diretoria members (CEO + CPO + CTO)
+  const diretoriaNomes = ['Thiago Zampiere', 'Josiele', 'Diego']
+  const diretoriaMembers = people.filter(p => diretoriaNomes.includes(p.nome))
 
   nodes.push({
     id: 'group-diretoria',
     type: 'group',
     data: { label: 'Diretoria' },
     position: { x: 0, y: 0 },
-    style: { width: 300, height: 150 },
+    style: { width: 300, height: 180 },
   })
 
-  // Add Diretoria members as child nodes
   for (const p of diretoriaMembers) {
     const cargoLabel = p.cargos.join(', ') || 'Sem cargo'
     nodes.push({
@@ -152,30 +148,41 @@ function processNotionData(items) {
     })
   }
 
-  // 2. Create team group nodes
-  const teamMap = {}
-  for (const p of people) {
-    if (p.gestor === 'Thiago Zampiere' || p.nome === 'Thiago Zampiere') {
-      continue // Skip Diretoria members
+  // Edges within Diretoria: Thiago → Josiele, Thiago → Diego
+  for (const p of diretoriaMembers) {
+    if (p.nome !== 'Thiago Zampiere' && p.gestor === 'Thiago Zampiere') {
+      edges.push({
+        id: `thiago-${p.nome}`,
+        source: 'Thiago Zampiere',
+        target: p.nome,
+      })
     }
-
-    const team = p.gestor || 'Sem Time'
-    if (!teamMap[team]) {
-      teamMap[team] = []
-    }
-    teamMap[team].push(p)
   }
 
-  let xOffset = 0
+  // 2. Group remaining people by their first Projeto
+  const teamMap = {}
+  for (const p of people) {
+    if (diretoriaNomes.includes(p.nome)) continue
+
+    const teamName = p.projetos[0] || 'Sem Time'
+    if (!teamMap[teamName]) {
+      teamMap[teamName] = []
+    }
+    teamMap[teamName].push(p)
+  }
+
   for (const [teamName, members] of Object.entries(teamMap)) {
     const groupId = `group-${teamName.toLowerCase().replace(/\s+/g, '-')}`
+
+    const memberCount = members.length
+    const groupHeight = Math.max(100, 40 + Math.ceil(memberCount / 2) * 70)
 
     nodes.push({
       id: groupId,
       type: 'group',
       data: { label: teamName },
-      position: { x: xOffset, y: 200 },
-      style: { width: 250, height: 120 },
+      position: { x: 0, y: 250 },
+      style: { width: 280, height: groupHeight },
     })
 
     for (const p of members) {
@@ -193,25 +200,12 @@ function processNotionData(items) {
       })
     }
 
-    // Add edge from Diretoria to team
+    // Edge: Diretoria → Team
     edges.push({
-      id: `diretoria-${groupId}`,
+      id: `edge-${groupId}`,
       source: 'group-diretoria',
       target: groupId,
     })
-
-    xOffset += 280
-  }
-
-  // 3. Add edges for Diretoria members to Thiago
-  for (const p of diretoriaMembers) {
-    if (p.nome !== 'Thiago Zampiere' && p.gestor === 'Thiago Zampiere') {
-      edges.push({
-        id: `thiago-${p.nome}`,
-        source: 'Thiago Zampiere',
-        target: p.nome,
-      })
-    }
   }
 
   return { nodes, edges }
