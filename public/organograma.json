@@ -1,47 +1,150 @@
 {
   "nodes": [
     {
+      "id": "group-diretoria",
+      "type": "group",
+      "data": {
+        "label": "Diretoria"
+      },
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "style": {
+        "width": 300,
+        "height": 150
+      }
+    },
+    {
+      "id": "Thiago Zampiere",
+      "type": "employee",
+      "data": {
+        "label": "Thiago Zampiere\nCEO",
+        "cargo": "CEO",
+        "projetos": [
+          "DIRETORIA CORELAB"
+        ]
+      },
+      "parentId": "group-diretoria",
+      "position": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "Josiele",
+      "type": "employee",
+      "data": {
+        "label": "Josiele\nCPO",
+        "cargo": "CPO",
+        "projetos": [
+          "DIRETORIA CORELAB"
+        ]
+      },
+      "parentId": "group-diretoria",
+      "position": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "Diego",
+      "type": "employee",
+      "data": {
+        "label": "Diego\nCTO",
+        "cargo": "CTO",
+        "projetos": [
+          "DIRETORIA CORELAB"
+        ]
+      },
+      "parentId": "group-diretoria",
+      "position": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "group-diretoria",
+      "type": "group",
+      "data": {
+        "label": "Diretoria"
+      },
+      "position": {
+        "x": 0,
+        "y": 200
+      },
+      "style": {
+        "width": 250,
+        "height": 120
+      }
+    },
+    {
       "id": "Wallace (1)",
+      "type": "employee",
       "data": {
         "label": "Wallace (1)\nDev",
         "cargo": "Dev",
         "projetos": [
           "BYPONTO"
         ]
+      },
+      "parentId": "group-diretoria",
+      "position": {
+        "x": 0,
+        "y": 0
       }
     },
     {
       "id": "Valese (1)",
+      "type": "employee",
       "data": {
         "label": "Valese (1)\nSuporte",
         "cargo": "Suporte",
         "projetos": [
           "RESULTAGRO"
         ]
+      },
+      "parentId": "group-diretoria",
+      "position": {
+        "x": 0,
+        "y": 0
       }
     },
     {
       "id": "Denovo",
+      "type": "employee",
       "data": {
         "label": "Denovo\nDev",
         "cargo": "Dev",
         "projetos": [
           "RESULTAGRO"
         ]
+      },
+      "parentId": "group-diretoria",
+      "position": {
+        "x": 0,
+        "y": 0
       }
     },
     {
       "id": "Valese",
+      "type": "employee",
       "data": {
         "label": "Valese\nSuporte",
         "cargo": "Suporte",
         "projetos": [
           "ZEONPAPER"
         ]
+      },
+      "parentId": "group-diretoria",
+      "position": {
+        "x": 0,
+        "y": 0
       }
     },
     {
       "id": "Luiz Eduardo",
+      "type": "employee",
       "data": {
         "label": "Luiz Eduardo\nDev",
         "cargo": "Dev",
@@ -51,10 +154,16 @@
           "DEPAULAPAY",
           "FANTHON"
         ]
+      },
+      "parentId": "group-diretoria",
+      "position": {
+        "x": 0,
+        "y": 0
       }
     },
     {
       "id": "Klay",
+      "type": "employee",
       "data": {
         "label": "Klay\nDev",
         "cargo": "Dev",
@@ -63,50 +172,80 @@
           "SAPIENS",
           "REDUTO"
         ]
+      },
+      "parentId": "group-diretoria",
+      "position": {
+        "x": 0,
+        "y": 0
       }
     },
     {
       "id": "Diogo",
+      "type": "employee",
       "data": {
         "label": "Diogo\nSuporte",
         "cargo": "Suporte",
         "projetos": [
           "ZEONPAPER"
         ]
+      },
+      "parentId": "group-diretoria",
+      "position": {
+        "x": 0,
+        "y": 0
       }
     },
     {
       "id": "Bartazhar",
+      "type": "employee",
       "data": {
         "label": "Bartazhar\nDev, Suporte",
         "cargo": "Dev, Suporte",
         "projetos": [
           "ZEONPAPER"
         ]
+      },
+      "parentId": "group-diretoria",
+      "position": {
+        "x": 0,
+        "y": 0
       }
     },
     {
       "id": "Natália",
+      "type": "employee",
       "data": {
         "label": "Natália\nUX",
         "cargo": "UX",
         "projetos": [
           "UX TEAM"
         ]
+      },
+      "parentId": "group-diretoria",
+      "position": {
+        "x": 0,
+        "y": 0
       }
     },
     {
       "id": "Juliana",
+      "type": "employee",
       "data": {
         "label": "Juliana\nUX",
         "cargo": "UX",
         "projetos": [
           "UX TEAM"
         ]
+      },
+      "parentId": "group-diretoria",
+      "position": {
+        "x": 0,
+        "y": 0
       }
     },
     {
       "id": "Guilherme Augusto",
+      "type": "employee",
       "data": {
         "label": "Guilherme Augusto\nDev",
         "cargo": "Dev",
@@ -114,10 +253,16 @@
           "TRADING FOOD",
           "MOONZ"
         ]
+      },
+      "parentId": "group-diretoria",
+      "position": {
+        "x": 0,
+        "y": 0
       }
     },
     {
       "id": "David Frank",
+      "type": "employee",
       "data": {
         "label": "David Frank\nDev",
         "cargo": "Dev",
@@ -128,10 +273,16 @@
           "PIDON",
           "MOONZ"
         ]
+      },
+      "parentId": "group-diretoria",
+      "position": {
+        "x": 0,
+        "y": 0
       }
     },
     {
       "id": "Gabriel Nascimento",
+      "type": "employee",
       "data": {
         "label": "Gabriel Nascimento\nDev",
         "cargo": "Dev",
@@ -140,10 +291,16 @@
           "RESULTAGRO",
           "FANTHON"
         ]
+      },
+      "parentId": "group-diretoria",
+      "position": {
+        "x": 0,
+        "y": 0
       }
     },
     {
       "id": "Heber Reis",
+      "type": "employee",
       "data": {
         "label": "Heber Reis\nDev",
         "cargo": "Dev",
@@ -151,10 +308,16 @@
           "SALARIOSWEB",
           "BYPONTO"
         ]
+      },
+      "parentId": "group-diretoria",
+      "position": {
+        "x": 0,
+        "y": 0
       }
     },
     {
       "id": "Gomes",
+      "type": "employee",
       "data": {
         "label": "Gomes\nDev",
         "cargo": "Dev",
@@ -163,10 +326,16 @@
           "JOINPLACE",
           "F1DELIZE"
         ]
+      },
+      "parentId": "group-diretoria",
+      "position": {
+        "x": 0,
+        "y": 0
       }
     },
     {
       "id": "Bartazah",
+      "type": "employee",
       "data": {
         "label": "Bartazah\nDev",
         "cargo": "Dev",
@@ -174,10 +343,16 @@
           "SPI-TOOLS",
           "MEU PET"
         ]
+      },
+      "parentId": "group-diretoria",
+      "position": {
+        "x": 0,
+        "y": 0
       }
     },
     {
       "id": "Kauan Junker",
+      "type": "employee",
       "data": {
         "label": "Kauan Junker\nDev",
         "cargo": "Dev",
@@ -185,20 +360,32 @@
           "REDUTO",
           "MEU PET"
         ]
+      },
+      "parentId": "group-diretoria",
+      "position": {
+        "x": 0,
+        "y": 0
       }
     },
     {
       "id": "Matheus",
+      "type": "employee",
       "data": {
         "label": "Matheus\nDev",
         "cargo": "Dev",
         "projetos": [
           "JOINPLACE"
         ]
+      },
+      "parentId": "group-diretoria",
+      "position": {
+        "x": 0,
+        "y": 0
       }
     },
     {
       "id": "Wallace",
+      "type": "employee",
       "data": {
         "label": "Wallace\nDev",
         "cargo": "Dev",
@@ -207,157 +394,43 @@
           "BYPONTO",
           "AKINGPOKER"
         ]
+      },
+      "parentId": "group-diretoria",
+      "position": {
+        "x": 0,
+        "y": 0
       }
     },
     {
       "id": "Dudu",
+      "type": "employee",
       "data": {
         "label": "Dudu\nDev",
         "cargo": "Dev",
         "projetos": [
           "FANTHON"
         ]
-      }
-    },
-    {
-      "id": "Thiago Zampiere",
-      "data": {
-        "label": "Thiago Zampiere\nCEO",
-        "cargo": "CEO",
-        "projetos": [
-          "DIRETORIA CORELAB"
-        ]
-      }
-    },
-    {
-      "id": "Josiele",
-      "data": {
-        "label": "Josiele\nCPO",
-        "cargo": "CPO",
-        "projetos": [
-          "DIRETORIA CORELAB"
-        ]
-      }
-    },
-    {
-      "id": "Diego",
-      "data": {
-        "label": "Diego\nCTO",
-        "cargo": "CTO",
-        "projetos": [
-          "DIRETORIA CORELAB"
-        ]
+      },
+      "parentId": "group-diretoria",
+      "position": {
+        "x": 0,
+        "y": 0
       }
     }
   ],
   "edges": [
     {
-      "id": "Diretoria-Wallace (1)",
-      "source": "Diretoria",
-      "target": "Wallace (1)"
+      "id": "diretoria-group-diretoria",
+      "source": "group-diretoria",
+      "target": "group-diretoria"
     },
     {
-      "id": "Diretoria-Valese (1)",
-      "source": "Diretoria",
-      "target": "Valese (1)"
-    },
-    {
-      "id": "Diretoria-Denovo",
-      "source": "Diretoria",
-      "target": "Denovo"
-    },
-    {
-      "id": "Diretoria-Valese",
-      "source": "Diretoria",
-      "target": "Valese"
-    },
-    {
-      "id": "Diretoria-Luiz Eduardo",
-      "source": "Diretoria",
-      "target": "Luiz Eduardo"
-    },
-    {
-      "id": "Diretoria-Klay",
-      "source": "Diretoria",
-      "target": "Klay"
-    },
-    {
-      "id": "Diretoria-Diogo",
-      "source": "Diretoria",
-      "target": "Diogo"
-    },
-    {
-      "id": "Diretoria-Bartazhar",
-      "source": "Diretoria",
-      "target": "Bartazhar"
-    },
-    {
-      "id": "Diretoria-Natália",
-      "source": "Diretoria",
-      "target": "Natália"
-    },
-    {
-      "id": "Diretoria-Juliana",
-      "source": "Diretoria",
-      "target": "Juliana"
-    },
-    {
-      "id": "Diretoria-Guilherme Augusto",
-      "source": "Diretoria",
-      "target": "Guilherme Augusto"
-    },
-    {
-      "id": "Diretoria-David Frank",
-      "source": "Diretoria",
-      "target": "David Frank"
-    },
-    {
-      "id": "Diretoria-Gabriel Nascimento",
-      "source": "Diretoria",
-      "target": "Gabriel Nascimento"
-    },
-    {
-      "id": "Diretoria-Heber Reis",
-      "source": "Diretoria",
-      "target": "Heber Reis"
-    },
-    {
-      "id": "Diretoria-Gomes",
-      "source": "Diretoria",
-      "target": "Gomes"
-    },
-    {
-      "id": "Diretoria-Bartazah",
-      "source": "Diretoria",
-      "target": "Bartazah"
-    },
-    {
-      "id": "Diretoria-Kauan Junker",
-      "source": "Diretoria",
-      "target": "Kauan Junker"
-    },
-    {
-      "id": "Diretoria-Matheus",
-      "source": "Diretoria",
-      "target": "Matheus"
-    },
-    {
-      "id": "Diretoria-Wallace",
-      "source": "Diretoria",
-      "target": "Wallace"
-    },
-    {
-      "id": "Diretoria-Dudu",
-      "source": "Diretoria",
-      "target": "Dudu"
-    },
-    {
-      "id": "Thiago Zampiere-Josiele",
+      "id": "thiago-Josiele",
       "source": "Thiago Zampiere",
       "target": "Josiele"
     },
     {
-      "id": "Thiago Zampiere-Diego",
+      "id": "thiago-Diego",
       "source": "Thiago Zampiere",
       "target": "Diego"
     }
