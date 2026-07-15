@@ -1,12 +1,12 @@
 import dagre from 'dagre'
 import { Position, type Node, type Edge } from '@xyflow/react'
 
-const dagreGraph = new dagre.graphlib.Graph().setDefaultEdgeLabel(() => ({}))
-
-const NODE_WIDTH = 172
-const NODE_HEIGHT = 60
 const GROUP_WIDTH = 280
 const GROUP_HEIGHT = 150
+const NODE_WIDTH = 172
+const NODE_HEIGHT = 60
+const CHILD_WIDTH = 130
+const CHILD_HEIGHT = 52
 
 export function getLayoutedElements(
   nodes: Node[],
@@ -14,70 +14,73 @@ export function getLayoutedElements(
   direction: 'TB' | 'LR' = 'TB',
 ) {
   const isHorizontal = direction === 'LR'
-  dagreGraph.setGraph({ rankdir: direction, nodesep: 50, ranksep: 80 })
 
-  const topLevelNodes = nodes.filter((n) => !n.parentId)
-  const childNodes = nodes.filter((n) => n.parentId)
+  const topLevel = nodes.filter((n) => !n.parentId)
+  const children = nodes.filter((n) => !!n.parentId)
+  const childrenByParent = new Map<string, Node[]>()
+  for (const c of children) {
+    const list = childrenByParent.get(c.parentId!) || []
+    list.push(c)
+    childrenByParent.set(c.parentId!, list)
+  }
 
-  topLevelNodes.forEach((node) => {
+  const g = new dagre.graphlib.Graph()
+  g.setGraph({ rankdir: direction, nodesep: 60, ranksep: 100 })
+  g.setDefaultEdgeLabel(() => ({}))
+
+  topLevel.forEach((node) => {
     const isGroup = node.type === 'group'
-    const width = isGroup ? GROUP_WIDTH : NODE_WIDTH
-    const height = isGroup ? GROUP_HEIGHT : NODE_HEIGHT
-    dagreGraph.setNode(node.id, { width, height })
+    g.setNode(node.id, {
+      width: isGroup ? GROUP_WIDTH : NODE_WIDTH,
+      height: isGroup ? GROUP_HEIGHT : NODE_HEIGHT,
+    })
   })
 
   edges.forEach((edge) => {
-    dagreGraph.setEdge(edge.source, edge.target)
+    if (g.hasNode(edge.source) && g.hasNode(edge.target)) {
+      g.setEdge(edge.source, edge.target)
+    }
   })
 
-  dagre.layout(dagreGraph)
+  dagre.layout(g)
 
-  const newNodes: Node[] = nodes.map((node) => {
-    if (node.parentId) {
-      const parent = dagreGraph.node(node.parentId)
-      if (!parent) {
-        return {
-          ...node,
-          targetPosition: isHorizontal ? Position.Left : Position.Top,
-          sourcePosition: isHorizontal ? Position.Right : Position.Bottom,
-        }
-      }
+  const newNodes: Node[] = []
 
-      const parentWidth = GROUP_WIDTH
-      const parentHeight = GROUP_HEIGHT
-      const childIndex = childNodes.filter((c) => c.parentId === node.parentId).indexOf(node)
-      const cols = 2
-      const row = Math.floor(childIndex / cols)
-      const col = childIndex % cols
-      const childWidth = 140
-      const childHeight = 60
-      const padding = 15
-      const x = parent.x - parentWidth / 2 + padding + col * (childWidth + padding)
-      const y = parent.y - parentHeight / 2 + 30 + row * (childHeight + padding)
-
-      return {
-        ...node,
-        targetPosition: isHorizontal ? Position.Left : Position.Top,
-        sourcePosition: isHorizontal ? Position.Right : Position.Bottom,
-        position: { x, y },
-      }
-    }
-
-    const pos = dagreGraph.node(node.id)
+  for (const node of topLevel) {
+    const pos = g.node(node.id)
+    if (!pos) continue
     const isGroup = node.type === 'group'
-    const width = isGroup ? GROUP_WIDTH : NODE_WIDTH
-    const height = isGroup ? GROUP_HEIGHT : NODE_HEIGHT
+    const w = isGroup ? GROUP_WIDTH : NODE_WIDTH
+    const h = isGroup ? GROUP_HEIGHT : NODE_HEIGHT
 
-    return {
+    newNodes.push({
       ...node,
+      position: { x: pos.x - w / 2, y: pos.y - h / 2 },
       targetPosition: isHorizontal ? Position.Left : Position.Top,
       sourcePosition: isHorizontal ? Position.Right : Position.Bottom,
-      position: {
-        x: pos.x - width / 2,
-        y: pos.y - height / 2,
-      },
+    })
+
+    const kids = childrenByParent.get(node.id) || []
+    const padding = 12
+    const cols = 2
+    const startY = isGroup ? 30 : 0
+
+    for (let i = 0; i < kids.length; i++) {
+      const child = kids[i]
+      const row = Math.floor(i / cols)
+      const col = i % cols
+      // positions are RELATIVE to parent in React Flow
+      const x = padding + col * (CHILD_WIDTH + padding)
+      const y = startY + row * (CHILD_HEIGHT + padding)
+
+      newNodes.push({
+        ...child,
+        position: { x, y },
+        targetPosition: isHorizontal ? Position.Left : Position.Top,
+        sourcePosition: isHorizontal ? Position.Right : Position.Bottom,
+      })
     }
-  })
+  }
 
   return { nodes: newNodes, edges }
 }
